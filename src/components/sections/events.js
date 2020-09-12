@@ -27,6 +27,7 @@ const EventCardContainer = styled.div`
     margin-top: 60px;
 `;
 
+// card container
 const InfoContainer = styled.div`
     position: absolute;
     ${({ reverse }) => (reverse ? 'left: 0;' : 'right: 0;')}
@@ -46,6 +47,7 @@ const InfoContainer = styled.div`
     `}
 `;
 
+// card image
 const ImageContainer = styled.div`
     position: absolute;
     ${({ reverse }) => (reverse ? 'right: 0;' : 'left: 0;')}
@@ -63,6 +65,7 @@ const ImageContainer = styled.div`
     `}
 `;
 
+//card title
 const EventTitle = styled.div`
     ${ts40r}
     ${media.tablet`${ts36r}`};
@@ -78,6 +81,7 @@ const EventTitle = styled.div`
     `}
 `;
 
+// event card description
 const EventDescription = styled.div`
     ${tsm18r}
     background-color: ${colors.main};

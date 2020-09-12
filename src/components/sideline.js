@@ -12,6 +12,7 @@ const SideLineContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 2px;
 `;
 
 const SideLine = ({ children, position }) => {

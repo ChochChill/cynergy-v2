@@ -15,6 +15,14 @@ const StyledButton = styled.div`
         padding: 16px;
         border-width: 1px;
     `};
+    :hover {
+        background-color: ${colors.main};
+        color: white;
+        border: 2px solid ${colors.main50alpha};
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        transition: all 0.4s;
+    }
 `;
 
 const Button = ({ text }) => {

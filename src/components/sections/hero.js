@@ -8,6 +8,7 @@ import { Button } from '@components';
 const StyledContactButton = styled.a`
     margin-top: 60px;
 `;
+
 const HeroContainer = styled(Section)`
     display: flex;
     flex-direction: column;
