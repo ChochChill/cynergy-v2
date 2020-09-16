@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { keyframes, css } from 'styled-components';
 import { eventCardsInfo, eventsTitle } from '@config';
 import { Section, ts40r, tsm18r, ts50b, tsm16r, ts36r, colors } from '@design/theme';
 import { media } from '@design/media';
@@ -27,22 +28,46 @@ const EventCardContainer = styled.div`
     margin-top: 60px;
 `;
 
+const comeFromLeft = keyframes`
+    from {
+        transform: translateX(-200%);
+    }
+    to {
+        transform: translateX(0%);
+    }
+`;
+const comeFromRight = keyframes`
+    from {
+        transform: translateX(200%);
+    }
+    to {
+        transform: translateX(0%);
+    }
+`;
+
 // card container
 const InfoContainer = styled.div`
     position: absolute;
-    ${({ reverse }) => (reverse ? 'left: 0;' : 'right: 0;')}
-
+    ${props =>
+        props.reverse
+            ? css`
+                  left: 0;
+                  animation: ${comeFromLeft} 1s ease-in backwards;
+              `
+            : css`
+                  right: 0;
+                  animation: ${comeFromRight} 1s ease-in backwards;
+              `};
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    align-items: ${({ reverse }) => (reverse ? 'flex-start;' : 'flex-end;')}
-
+    align-items: ${props => (props.reverse ? 'flex-start' : 'flex-end')};
     width: 60%;
     height: 100%;
-
     ${media.thone`
         width: 100%;
-        align-items: flex-start;
+     
+      align-items: flex-start;
         background-color: ${colors.main50alpha};
     `}
 `;
@@ -50,7 +75,16 @@ const InfoContainer = styled.div`
 // card image
 const ImageContainer = styled.div`
     position: absolute;
-    ${({ reverse }) => (reverse ? 'right: 0;' : 'left: 0;')}
+    ${props =>
+        props.reverse
+            ? css`
+                  right: 0;
+                  animation: ${comeFromRight} 1s ease-in backwards;
+              `
+            : css`
+                  left: 0;
+                  animation: ${comeFromLeft} 1s ease-in backwards;
+              `};
 
     display: flex;
     justify-content: center;
